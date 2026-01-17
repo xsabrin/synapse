@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CardX</title>
+  <title>synapse</title>
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,16 +12,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="nav-inner">
-      <div class="logo">CardX</div>
+  <div class="index">
+    <nav class="navbar">
+      <div class="logo">synapse</div>
       <a href="login.html">
         <button class="btn login-btn">Log in</button>
       </a>
-    </div>
-  </nav>
-
+    </nav>
+    <main>
+      <section class="hero">
+        <section class="grid">
+          <div class="hero-content">
+            <h1>Trade people.<br>Not contacts.</h1>
+            <p>
+              Collect digital cards from people you actually meet.
+              Trade them. Keep them forever.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary">Get Started</button>
+              <button class="btn secondary">Learn More</button>
+            </div>
+          </div>
+    
+          <div class="hero-visual">
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
   <section class="hero">
     <div class="hero-content">
       <h1>Trade people.<br>Not contacts.</h1>
@@ -29,7 +51,9 @@
         Trade them. Keep them forever.
       </p>
       <div class="hero-actions">
-        <button class="btn primary">Get Started</button>
+        <a href="login.html">
+          <button class="btn primary">Get Started</button>
+        </a>
         <button class="btn secondary">Learn More</button>
       </div>
     </div>
