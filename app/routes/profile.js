@@ -26,4 +26,30 @@ router.post("/", async (req, res) => {
   res.json({ ok: true, created: true });
 });
 
+router.put("/", async (req, res) => {
+  const { email, job, country, bio, skills, avatar } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: "Missing email" });
+  }
+
+  const updatedProfile = await Profile.findOneAndUpdate(
+    { email },
+    {
+      job,
+      country,
+      bio,
+      skills,
+      avatar
+    },
+    { new: true }
+  );
+
+  if (!updatedProfile) {
+    return res.status(404).json({ error: "Profile not found" });
+  }
+
+  res.json({ ok: true, profile: updatedProfile });
+});
+
 export default router;

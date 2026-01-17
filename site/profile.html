@@ -27,42 +27,69 @@
       Set up your digital card so others can discover and connect with you.
     </p>
 
-    <form class="profile-form">
+    <form class="profile-form" id="profileForm">
 
       <div class="row">
         <div class="field">
           <label>First name <span>*</span></label>
-          <input type="text" placeholder="First name" required />
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First name"
+            required
+            disabled
+          />
         </div>
 
         <div class="field">
           <label>Last name <span>*</span></label>
-          <input type="text" placeholder="Last name" required />
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last name"
+            required
+            disabled
+          />
         </div>
       </div>
 
       <div class="field full">
         <label>Job / Role</label>
-        <input type="text" placeholder="Student, Developer, Designer" />
+        <input
+          type="text"
+          id="job"
+          placeholder="Student, Developer, Designer"
+        />
       </div>
 
       <div class="field full">
         <label>Country</label>
-        <input type="text" placeholder="Canada" />
+        <input
+          type="text"
+          id="country"
+          placeholder="Canada"
+        />
       </div>
 
       <div class="field full">
         <label>Bio</label>
-        <textarea placeholder="Tell people about yourself"></textarea>
+        <textarea
+          id="bio"
+          placeholder="Tell people about yourself"
+        ></textarea>
       </div>
 
       <div class="field full">
         <label>Skills</label>
-        <input type="text" placeholder="Web, AI, Backend, Design" />
+        <input
+          type="text"
+          id="skills"
+          placeholder="Web, AI, Backend, Design"
+        />
       </div>
 
       <div class="actions">
-        <button type="button" class="cancel">Cancel</button>
+        <button type="button" class="cancel" id="cancelBtn">Cancel</button>
         <button type="submit" class="save">Save Profile</button>
       </div>
 
