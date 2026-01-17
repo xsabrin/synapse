@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(2, 6, 23, 0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.login-btn {
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Hero */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 24px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.hero-content p {
+  margin-top: 22px;
+  font-size: 1.1rem;
+  color: #cbd5f5;
+  max-width: 520px;
+}
+
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+}
+
+.primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.primary:hover {
+  opacity: 0.9;
+}
+
+.secondary {
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 12px 22px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.secondary:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  height: 320px;
+}
+
+.mock-card {
+  position: absolute;
+  width: 220px;
+  height: 140px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,0.35),
+    rgba(168,85,247,0.35)
+  );
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+
+.mock-card:nth-child(1) {
+  top: 0;
+  left: 60px;
+}
+
+.mock-card:nth-child(2) {
+  top: 90px;
+  left: 0;
+}
+
+.mock-card:nth-child(3) {
+  top: 160px;
+  left: 120px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+}
