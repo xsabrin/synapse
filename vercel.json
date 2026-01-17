@@ -1,8 +1,11 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs24.x"
+    }
+  },
   "routes": [
-    { "src": "^/$", "dest": "/site/index.html" },
-    { "src": "^/(.*)", "dest": "/site/$1" }
+    { "src": "/api/(.*)", "dest": "/api/server.js" },
+    { "src": "/(.*)", "dest": "/site/$1" }
   ]
 }

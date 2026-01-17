@@ -119,14 +119,14 @@ main {
 .index {
   height: 100%;
   width: 100%;
-}
-
-.index .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+}
+
+.hero {
+  margin:auto;
+  padding-left: 20vw;
 }
 
 .index .grid {
