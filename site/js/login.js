@@ -14,7 +14,21 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 document.getElementById("googleLogin").onclick = async () => {
   try {
-    await auth.signInWithPopup(provider);
+    const result = await auth.signInWithPopup(provider);
+    const user = result.user;
+
+    await fetch("/api/profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: user.displayName,
+        email: user.email,
+        avatar: user.photoURL
+      })
+    });
+
     window.location.href = "main.html";
   } catch (err) {
     alert(err.message);
