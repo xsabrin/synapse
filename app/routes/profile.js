@@ -52,4 +52,20 @@ router.put("/", async (req, res) => {
   res.json({ ok: true, profile: updatedProfile });
 });
 
+router.get("/", async (req, res) => {
+  const { email } = req.query;
+
+  if (!email) {
+    return res.status(400).json({ error: "Missing email" });
+  }
+
+  const profile = await Profile.findOne({ email });
+
+  if (!profile) {
+    return res.status(404).json({ error: "Profile not found" });
+  }
+
+  res.json(profile);
+});
+
 export default router;

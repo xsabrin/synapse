@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-auth.onAuthStateChanged(user => {
+auth.onAuthStateChanged(async user => {
   if (!user) {
     window.location.href = "login.html";
     return;
@@ -21,6 +21,22 @@ auth.onAuthStateChanged(user => {
   document.getElementById("emailText").textContent = user.email;
   document.getElementById("avatar").src = user.photoURL;
   document.getElementById("nameText").textContent = user.displayName;
+  // fetch profile from mongo using email
+  try {
+    const res = await fetch(`/api/profile?email=${encodeURIComponent(user.email)}`);
+
+    if (!res.ok) {
+      throw new Error("Profile fetch failed");
+    }
+
+    const profile = await res.json();
+
+    document.getElementById("jobText").textContent =
+      profile.job || "No job set";
+  } catch (err) {
+    console.error(err);
+    document.getElementById("jobText").textContent = "Profile not found";
+  }
 });
 
 document.getElementById("logoutBtn").onclick = async () => {
