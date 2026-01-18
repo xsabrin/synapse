@@ -44,14 +44,4 @@ btn.addEventListener('click', async () => {
             qrContainer.style.display = 'block';
         }
     });
-
-    // try {
-    //     const res = await fetch(`/api/profile?email=${encodeURIComponent(email)}`);
-    //     if (res.ok) {
-    //         const profile = await res.json();
-    //         email = profile.email;
-    //     }
-    // } catch (err) {
-    //     console.error('Failed to load profile', err);
-    // }
 });

@@ -513,3 +513,13 @@ div.content {
 .btn.scan-btn:hover {
   box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
 }
+
+.add-friend #result {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.add-friend #reader {
+  margin-top: 2rem;
+  width: 40vw;
+}
