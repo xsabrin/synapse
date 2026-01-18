@@ -19,7 +19,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
   const form = document.querySelector(".profile-form");
   if (!form) return;
 
-  // 🔹 LOAD EXISTING PROFILE DATA
   try {
     const res = await fetch(`/api/profile?email=${encodeURIComponent(user.email)}`);
     if (res.ok) {
@@ -40,7 +39,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
 
 	document.getElementById("firstName").value = firstName || "";
 	document.getElementById("lastName").value = lastName || "";
-	
+
   // 🔹 SAVE PROFILE
   form.onsubmit = async (e) => {
     e.preventDefault();

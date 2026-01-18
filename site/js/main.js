@@ -21,7 +21,7 @@ auth.onAuthStateChanged(async user => {
   document.getElementById("emailText").textContent = user.email;
   document.getElementById("avatar").src = user.photoURL;
   document.getElementById("nameText").textContent = user.displayName;
-  // fetch profile from mongo using email
+
   try {
     const res = await fetch(`/api/profile?email=${encodeURIComponent(user.email)}`);
 
