@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Main</title>
+  <title>Connect with others</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Firebase -->
@@ -11,10 +11,12 @@
 
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/main.js" defer></script>
+  <script type="module" src="js/connect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
 </head>
 <body>
-  <div class="main">
+  <div class="add-friend">
     <nav class="navbar">
       <a href="main.html">
         <div class="logo">synapse</div>
@@ -25,13 +27,8 @@
     </nav>
     <main class="grid">
       <div class="sidebar">
-<<<<<<< Updated upstream
         <a href="main.html">
             <button class="side-btn">Dashboard</button>
-=======
-        <a href="main.html" class="return">
-        <button class="side-btn">Dashboard</button>
->>>>>>> Stashed changes
         </a>
         <a href="profile.html">
           <button class="side-btn">Profile</button>
@@ -45,14 +42,10 @@
         </a>
       </div>
       <div class="content">
-        <div class="welcome" id="welcomeText">Welcome</div>
-        <div class="email" id="emailText"></div>
-    
-        <div class="card">
-          <img id="avatar" />
-          <div class="card-name" id="nameText"></div>
-          <div class="card-sub" id="jobText">Loading...</div>
-        </div>
+        <h1 class="friend-title">Scan a friend's QR Code</h1>
+        <p>QR codes expire in 1 minute, ask your friend to generate a new code if it expires</p>
+        <button class="btn scan-btn" id="scanButton">Scan a QR Code</button>
+        <div id="qrcode"></div>
       </div>
     </main>
   </div>

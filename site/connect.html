@@ -11,7 +11,9 @@
 
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/connect.js" defer></script>
+  <script type="module" src="js/connect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
 </head>
 <body>
   <div class="connect">
@@ -25,24 +27,25 @@
     </nav>
     <main class="grid">
       <div class="sidebar">
-        <button class="side-btn">Dashboard</button>
+        <a href="main.html">
+            <button class="side-btn">Dashboard</button>
+        </a>
         <a href="profile.html">
           <button class="side-btn">Profile</button>
         </a>
         <button class="side-btn">Settings</button>
         <a href="connect.html">
+          <button class="side-btn">My QR Code</button>
+        </a>
+        <a href="add-friend.html">
           <button class="side-btn">Add new friend</button>
         </a>
       </div>
       <div class="content">
-        <div class="welcome" id="welcomeText">Welcome</div>
-        <div class="email" id="emailText"></div>
-    
-        <div class="card">
-          <img id="avatar" />
-          <div class="card-name" id="nameText"></div>
-          <div class="card-sub">Your digital card</div>
-        </div>
+        <h1 class="connect-title">Generate a QR code</h1>
+        <p>QR codes expire in 1 minute</p>
+        <button class="btn connect-btn" id="connectButton">Generate a new QR Code</button>
+        <div id="qrcode"></div>
       </div>
     </main>
   </div>
