@@ -26,7 +26,6 @@ app.use(bodyParser.json());
 app.use("/api/profile", profileRoutes);
 app.use("/api/request", requestRoutes);
 
-
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../site")));
 app.use(express.static(path.join(__dirname, "../site/pages")));

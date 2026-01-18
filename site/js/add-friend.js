@@ -1,3 +1,15 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyDzgzWWinou5yEjLksEJBCOcIIin0lrWA8",
+    authDomain: "solnet-f2191.firebaseapp.com",
+    projectId: "solnet-f2191",
+    storageBucket: "solnet-f2191.firebasestorage.app",
+    messagingSenderId: "991886660477",
+    appId: "1:991886660477:web:ad882dc4e9cee2086db214",
+    measurementId: "G-324DCMV00T"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 const resultDiv = document.getElementById("result");
 const qrRegionId = "reader";
 const html5QrCode = new Html5Qrcode(qrRegionId);
@@ -26,19 +38,30 @@ btn.addEventListener('click', async () => {
                             const diffHours = diffMs / (1000 * 60 * 60);
 
                             if (diffHours <= 1) {
-                                const res = await fetch("/api/request", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({ email, date }),
-                                });
+                                await firebase.auth().onAuthStateChanged(async (user) => {
+                                    if (!user) {
+                                        window.location.href = "index.html";
+                                        return;
+                                    }
 
-                                if (res.ok) {
-                                    resultDiv.innerText = `QR code accepted: ${email}`;
-                                } else {
-                                    resultDiv.innerText = "Failed to submit data";
-                                }
+                                    if (user.email == email) {
+                                        alert('Cannot add yourself as a friend')
+                                    } else {
+                                        const res = await fetch("/api/request", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                            },
+                                            body: JSON.stringify({ email, date }),
+                                        });
+
+                                        if (res.ok) {
+                                            resultDiv.innerText = `QR code accepted: ${email}`;
+                                        } else {
+                                            resultDiv.innerText = "Failed to submit data";
+                                        }
+                                    }
+                                })
                             } else {
                                 resultDiv.innerText = "QR code expired, please generate a new one";
                             }
