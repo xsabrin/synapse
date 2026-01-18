@@ -486,3 +486,30 @@ div.content {
   width: fit-content;
   border-radius: 15px;
 }
+
+/* FRIEND */
+.add-friend {
+  height: 100%;
+  width: 100%;
+}
+
+.add-friend .friend-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.btn.scan-btn {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #7c5cff, #4f46e5);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.btn.scan-btn:hover {
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
+}
