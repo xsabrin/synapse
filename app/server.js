@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI)
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(console.error);
 
 import profileRoutes from "./routes/profile.js";
+import requestRoutes from "./routes/request.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +24,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/profile", profileRoutes);
+app.use("/api/request", requestRoutes);
+
 
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../site")));
